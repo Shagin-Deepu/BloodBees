@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    color: #111827;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+    background-color: #f8fafc;
+    background-image:
+      radial-gradient(ellipse at top center, rgba(225, 29, 72, 0.25) 0%, transparent 70%);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll on mobile */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .dark body {
+    color: #ffffff;
+    background-color: #141414;
+    /* gray-950 */
+    background-image:
+      radial-gradient(ellipse at bottom center, rgba(244, 63, 94, 0.15) 0%, transparent 70%);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+  }
+
+  /* Prevent iOS zoom on form elements focus */
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+  display: block;
+}
+
+::view-transition-group(root) {
+  animation: none;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2;
+}
